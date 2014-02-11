@@ -1,0 +1,13 @@
+version: 1.5.2
+apkFileName: GpsLocationTest.apk
+isFrameworkApk: false
+usesFramework:
+  ids:
+  - 1
+sdkInfo:
+  minSdkVersion: '4'
+  targetSdkVersion: '4'
+packageInfo:
+  orig_package: com.android.emulator.gps.test
+  cur_package: android
+compressionType: false

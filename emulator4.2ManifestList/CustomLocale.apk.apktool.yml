@@ -1,0 +1,13 @@
+version: 1.5.2
+apkFileName: CustomLocale.apk
+isFrameworkApk: false
+usesFramework:
+  ids:
+  - 1
+sdkInfo:
+  minSdkVersion: '3'
+  targetSdkVersion: '17'
+packageInfo:
+  cur_package: com.android.customlocale2
+  orig_package: com.android.customlocale2
+compressionType: false
