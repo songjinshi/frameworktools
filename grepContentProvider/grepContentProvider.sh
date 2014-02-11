@@ -21,17 +21,20 @@ rm -irf manifestList
 mkdir -p output
 mkdir -p temp
 
-cd PullAndroidManifestTool
-./OneKeyPullManifest.sh /system/app /system/framework /custpack/app /data/app /local/temp
-cd ..
+cd ../PullAndroidManifestTool
+./OneKeyPullManifest.sh /system/app /system/framework /custpack/app /local/temp
+cd -
 cp -irf /local/temp/manifestList .
 
 cd $1
-grep -H "<provider" -r . > ../temp/emulatorContentProvider.txt
-cd ..
+grep -H "<provider" -r . > emulatorContentProvider.txt
+cd -
+mv $1/emulatorContentProvider.txt ./temp/
+
 cd manifestList
 grep -H "<provider" -r . > ../temp/PhoneContentProvider.txt
-cd ..
+cd -
+
 grep -vFf ./temp/emulatorContentProvider.txt ./temp/PhoneContentProvider.txt > ./output/customOEMContentProvider.txt
 cp ./output/customOEMContentProvider.txt ./output/sensitiveCustomeOEMContentProvider.txt
 grep -v "android:exported=\"false\"" ./output/customOEMContentProvider.txt > ./temp/exportedCustomOCP.txt
